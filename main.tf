@@ -11,7 +11,7 @@ resource "aws_instance" "meysam" {
 # resource "aws_instance" "babak2" {
 #   ami = "ami-08cd358d745620807"
 
-#   instance_type = "t2.micro"
+#   instance_type = "t2.nano"
 
 #   tags = {
 #     Created_By = "terraform"
