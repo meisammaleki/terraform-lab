@@ -1,5 +1,8 @@
 <?php
 
+if (!defined("WHMCS"))
+        die("This file cannot be accessed directly");
+
 function curl_call($myvars)
 {
    $ch = curl_init();
@@ -32,7 +35,7 @@ function endsWith($string, $endString)
 {
     $len = strlen($endString);
     if ($len == 0) {
-        return true;
+        return false;
     }
     return (substr($string, -$len) === $endString);
 }
@@ -128,7 +131,7 @@ function noshutPort($vars)
                 }
                 foreach ($portNumber as $port) {
                         $url = $serverAddress . '/api/json/ncmsettings/execConfiglet';
-                        $apiKey = '4bdfccdf6777c85ca2a9594958c90abc';
+                        $apiKey = '';
                         $VAR_NAME = '["INTERFACE"]';
                         $selectedDevices = '["'.$value.'"]';
                         $TEMPLATE_ID = "602";
@@ -149,4 +152,3 @@ function noshutPort($vars)
 add_hook('PreModuleSuspend', 1, 'shutPort');
 add_hook('PreModuleUnsuspend', 1, 'noshutPort');
 //add_hook('AfterModuleCreate', 1, 'noshutPort');
-
